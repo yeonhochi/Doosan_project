@@ -2,7 +2,7 @@
 
 # DOOSAN 협동로봇 프로젝트 개요
 
-DOOSAN 로봇 프로젝트는 **두산 로봇 M0609 모델**을 사용하며, `DSR`(Doosan Software for Robotics) 패키지와 `ROS`(Robot Operating System) 환경을 활용하여 다양한 task를 진행합니다.  
+DOOSAN 로봇 프로젝트는 **두산로보틱스 M0609 모델**을 사용하며, `DSR`(Doosan Software for Robotics) 패키지와 `ROS`(Robot Operating System) 환경을 활용하여 다양한 task를 진행합니다.  
 
 ---
 
