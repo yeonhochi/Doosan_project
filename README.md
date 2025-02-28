@@ -30,11 +30,11 @@
 
 ---
 
-### 7. **MATLAB 기반 손글씨 인식 딥러닝 모델 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Matlab_based_deep_learning
+### 7. **Solar-Powered Quadrotor Navigation Algorithm ->** https://github.com/yeonhochi/robotics_sw_project/tree/main/Solar-Powered%20Quadrotor
 
 ---
 
-### 8. **Solar-Powered Quadrotor Navigation Algorithm ->** https://github.com/yeonhochi/robotics_sw_project/tree/main/Solar-Powered%20Quadrotor
+### 8. **MATLAB 기반 손글씨 인식 딥러닝 모델 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Matlab_based_deep_learning
 
 ---
 
