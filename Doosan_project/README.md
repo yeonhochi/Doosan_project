@@ -33,6 +33,8 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
 
 ---
 
+<br><br>
+
 # 1.기어 조립 task
 
 # 동작 영상: https://youtu.be/KN64CLbVrLM
