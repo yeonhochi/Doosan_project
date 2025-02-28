@@ -6,7 +6,7 @@
 
 ## 📌 프로젝트 개요
 
-### 1. **DART 플랫폼(두산로보틱스) + ROS-2를 활용한 협동로봇 동작 운영 실습 ->**	https://github.com/yeonhochi/Doosan_project/tree/main/Doosan_project
+### 1. **DART 플랫폼(두산로보틱스) + ROS2를 활용한 협동로봇 동작 운영 실습 ->**	https://github.com/yeonhochi/Doosan_project/tree/main/Doosan_project'
 
 ---
    
