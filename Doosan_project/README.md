@@ -27,13 +27,13 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
 
 # 기어 조립 코드 설명
 
-# 1️⃣ 초기 설정 및 기본 동작 정의
+## 1️⃣ 초기 설정 및 기본 동작 정의
 
     로봇이 기본 위치(base position)로 이동
     그리퍼(gripper) 관련 잡기(grip), 놓기(release) 동작 함수 정의
     힘 제어(force control)를 위한 forcing_middle() 함수 정의
 
-# 2️⃣ pap() → 기어를 잡아서 끼우는 동작
+## 2️⃣ pap() → 기어를 잡아서 끼우는 동작
 
 ✅ 기능:
 
@@ -50,7 +50,7 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
     다시 위쪽(150mm)으로 올라가 대기
 
 📌 이 함수는 Global_a1 → Global_b1, Global_a2 → Global_b2, Global_a3 → Global_b3 로 기어를 조립
-# 3️⃣ pap_middle() → 3개의 기어 중앙에 새로운 기어 배치
+## 3️⃣ pap_middle() → 3개의 기어 중앙에 새로운 기어 배치
 
 ✅ 기능:
 
@@ -65,7 +65,7 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
 
 📌 이 동작은 기존 기어 위에 새로운 기어를 올리는 과정
 
-# 4️⃣ middle_last() → 최종 기어 배치 및 힘 제어 적용
+## 4️⃣ middle_last() → 최종 기어 배치 및 힘 제어 적용
 
 ✅ 기능:
 
