@@ -36,60 +36,52 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
 # 기어 조립 코드 설명
 
 ## 1️⃣ 초기 설정 및 기본 동작 정의
+로봇을 기본 위치(Base Position)로 이동
+grip() 함수 정의 → 그리퍼를 닫아 기어를 잡음
+release() 함수 정의 → 그리퍼를 열어 기어를 놓음
+forcing_middle() 함수 정의 → 힘 제어(Force Control)를 적용하여 정확한 배치 수행
 
-    로봇이 기본 위치(base position)로 이동
-    그리퍼(gripper) 관련 잡기(grip), 놓기(release) 동작 함수 정의
-    힘 제어(force control)를 위한 forcing_middle() 함수 정의
-
-## 2️⃣ pap() → 기어를 잡아서 끼우는 동작
-
-✅ 기능:
-
-    기어를 들어서 목적지에 배치하는 동작
-    a 위치에서 기어를 집고 b 위치에 기어를 놓음
-
-✅ 동작 순서:
-
-    a 위치 위쪽(150mm)으로 이동
+## 2️⃣ pap() → 기어를 잡아서 끼우는 동작 함수
+함수 pap(a, b):
+    a 위치에서 150mm 위로 이동
     a 위치로 내려와 기어를 잡음 (grip())
-    다시 위쪽(150mm)으로 올라감
-    b 위치 위쪽(150mm)으로 이동
+    다시 150mm 위로 이동
+    b 위치에서 150mm 위로 이동
     b 위치로 내려와 기어를 놓음 (release())
-    다시 위쪽(150mm)으로 올라가 대기
+    다시 150mm 위로 이동하여 대기
 
-📌 이 함수는 Global_a1 → Global_b1, Global_a2 → Global_b2, Global_a3 → Global_b3 로 기어를 조립
+
 ## 3️⃣ pap_middle() → 3개의 기어 중앙에 새로운 기어 배치
-
-✅ 기능:
-
-    이미 조립된 3개의 기어 중심에 추가 기어를 올리는 동작
-
-✅ 동작 순서:
-
-    Global_middle 위치 위쪽(150mm)으로 이동
+함수 pap_middle():
+    Global_middle 위치에서 150mm 위로 이동
     Global_middle 위치로 내려와 기어를 잡음 (grip())
-    다시 위쪽(150mm)으로 올라감
-    Global_last 위치 위쪽(70mm)으로 이동 (최종 기어 위치)
+    다시 150mm 위로 이동
+    Global_last 위치에서 70mm 위로 이동 (최종 기어 배치 위치로 이동)
 
-📌 이 동작은 기존 기어 위에 새로운 기어를 올리는 과정
+## 3개의 기어를 조립하는 과정
+pap(Global_a1, Global_b1)  # 첫 번째 기어 조립
+pap(Global_a2, Global_b2)  # 두 번째 기어 조립
+pap(Global_a3, Global_b3)  # 세 번째 기어 조립
+
+pap_middle()               # 기어 중앙에 새로운 기어 배치
 
 ## 4️⃣ middle_last() → 최종 기어 배치 및 힘 제어 적용
+함수 middle_last():
+    forcing_middle() 실행 → 힘 제어(Force Control) 활성화
+    
+    반복문 실행:
+        Z축 방향의 힘 측정
+        만약 힘이 9N 이상 감지되면:
+            Global_last 위치로 이동
+            기어를 놓음 (release())
+            힘 제어 종료 (Force Control 해제)
+            반복문 종료 (EXIT)
 
-✅ 기능:
+middle_last()
 
-    최종 기어를 놓을 때 힘(force)을 감지하여 안정적으로 배치
-    힘이 일정 이상 감지되면 기어를 놓고(force release) 힘 제어를 해제
+## ✅ 기어 조립 완료!
+프로그램 종료
 
-✅ 동작 순서:
-
-    forcing_middle() 함수를 실행하여 힘 제어(Force Control) 시작
-    반복문을 돌며 Z축 힘을 측정
-    특정 힘 이상(get_tool_force(DR_BASE)[2] > 9) 감지되면
-        Global_last 위치로 이동
-        기어를 놓음 (release())
-        힘 제어를 중지하고 종료
-
-📌 이 동작은 마지막 기어를 기존 기어들과 맞물리도록 배치하는 과정
 
 
 
