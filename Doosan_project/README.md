@@ -33,7 +33,9 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
 
 ---
 
-# 기어 조립 코드 설명
+# 기어 조립 코드
+
+# 동작 영상https://youtu.be/KN64CLbVrLM
 
 ## 1️⃣ 초기 설정 및 기본 동작 정의
     로봇을 기본 위치(Base Position)로 이동
