@@ -18,11 +18,11 @@
 
 ---
    
-4. **Vision AI 기반 컨베이어 벨트 객체 인식 딥러닝 모델 최적화->** https://github.com/yeonhochi/Doosan_project/tree/main/Vision%20AI-Based%20Conveyor%20Belt%20Object%20Detection
+4. **Vision AI 기반 컨베이어 벨트 객체 인식 딥러닝 모델 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Vision%20AI-Based%20Conveyor%20Belt%20Object%20Detection
 
 ---
    
-5. **AI 비전 감시 간이 시스템 구축->**
+5. **Vision AI 기반 자율 주행 및 객체 트래킹 개발 ->**
 
 ---
-
+6. **Fullfilment 가상 서비스 환경 실습->**
