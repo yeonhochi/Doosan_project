@@ -14,3 +14,12 @@ DOOSAN 로봇 프로젝트는 **두산로보틱스 M0609 모델**을 사용하�
 3. **Sport Stacking task**
 
 
+ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=real host:=192.168.1.100 port:=12345 model:=m0609
+
+
+ros2 run rokey jog
+
+ros2 run rokey get_current_pos
+
+ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot_mode: 0"
+
