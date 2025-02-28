@@ -30,6 +30,10 @@
 
 ---
 
-### 7. **MATLAB 기반 손글씨 인식 딥러닝 모델 ->** 
+### 7. **MATLAB 기반 손글씨 인식 딥러닝 모델 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Matlab_based_deep_learning
+
+---
+
+### 8. **Solar-Powered Quadrotor Project ->**
 
 
