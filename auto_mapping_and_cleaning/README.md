@@ -122,6 +122,45 @@
 ---
 # cleaning 코드 설명
 
+1️⃣ 초기화 및 구독/발행 설정
+
+    /map 토픽을 구독하여 OccupancyGrid(맵 데이터) 를 가져옴
+    marker_waypoints 토픽을 발행하여 RViz에서 웨이포인트 시각화
+    navigate_to_pose 액션 클라이언트를 생성하여 Nav2를 통해 로봇을 이동
+
+2️⃣ map_callback() → 맵을 numpy 배열로 변환 후 웨이포인트 생성
+
+    ROS 2의 OccupancyGrid 메시지를 numpy 배열로 변환하여 맵 데이터 저장
+    지그재그(Zigzag) 패턴으로 웨이포인트를 자동 생성
+        벽에서 일정 거리(5셀 이상) 떨어진 셀만 웨이포인트로 선택
+        짝수 행(row)에서는 왼쪽 → 오른쪽으로 이동
+        홀수 행(row)에서는 오른쪽 → 왼쪽으로 이동
+
+3️⃣ timer_callback() → 1초마다 웨이포인트 탐색 시작
+
+    맵을 받지 못했거나 이미 탐색 중이라면(is_navigating = True) 새로운 목표 설정 X
+    첫 번째 웨이포인트로 이동을 시작
+
+4️⃣ send_next_goal() → Nav2 액션을 사용하여 이동 명령 전송
+
+    현재 이동해야 할 웨이포인트의 좌표(x, y)를 가져와 PoseStamped 메시지 생성
+    Nav2 액션 클라이언트를 통해 목표를 전송
+    목표를 설정하면 goal_response_callback()에서 성공 여부 확인
+
+5️⃣ goal_response_callback() → Nav2에서 목표를 수락했는지 확인
+
+    Nav2가 목표를 수락하면(Goal accepted.)
+        get_result_callback()에서 목표 도달 여부를 확인
+
+6️⃣ get_result_callback() → 목표 도착 후 다음 웨이포인트 이동
+
+    현재 웨이포인트 도착 후 다음 웨이포인트로 이동
+    모든 웨이포인트 방문 시 탐색 종료
+
+7️⃣ update_markers() → RViz에서 웨이포인트 시각화
+
+    초록색(방문 완료), 빨간색(미방문) 점을 사용하여 웨이포인트 표시
+    방문한 웨이포인트를 리스트에서 제거하여 업데이트
 
 
 
