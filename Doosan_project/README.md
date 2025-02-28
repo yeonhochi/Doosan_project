@@ -13,6 +13,14 @@ DOOSAN 로봇 프로젝트는 **두산로보틱스 M0609 모델**을 사용하�
 2. **3×3 형태의 팔레트에 블록 길이 순서대로 배치하는 task**
 3. **Sport Stacking task**
 
+---
+<br>
+
+# 동작 영상 https://youtube.com/shorts/2dssJ4UTbxk
+
+<br>
+
+---
 
 ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=real host:=192.168.1.100 port:=12345 model:=m0609
 
