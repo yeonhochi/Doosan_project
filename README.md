@@ -34,7 +34,7 @@
 
 ---
 
-### 8. **Solar-Powered Quadrotor Project ->**
+### 8. **Solar-Powered Quadrotor Project ->** https://github.com/yeonhochi/robotics_sw_project/tree/main/Solar-Powered%20Quadrotor
 
 ---
 
