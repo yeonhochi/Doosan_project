@@ -14,7 +14,7 @@
 - Quadrotor의 **각 축 회전(Roll, Pitch, Yaw)에 따른 태양광 에너지 하베스팅 양** 분석
 - **SW 시뮬레이터**를 활용하여 Quadrotor의 최적 동작을 설계
 
-<img src="https://github.com/user-attachments/assets/22b0d1c9-83be-445e-80e9-0ceb60368fb7" width="600" height="600">
+<img src="https://github.com/user-attachments/assets/22b0d1c9-83be-445e-80e9-0ceb60368fb7" width="600" height="400">
 
 ---
 
