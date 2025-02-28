@@ -11,6 +11,15 @@
 
 ---
 
+<br>
+
+# 동작영상 https://youtube.com/shorts/h5z52mMWjjo?feature=shared
+
+<br>
+
+---
+
+
 ## 주요 기능
 
 ### 1. 실시간 불량 검출  
