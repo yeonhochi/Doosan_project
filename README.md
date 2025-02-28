@@ -18,7 +18,7 @@
 
 ---
    
-4. **Vision AI 기반 컨베이어 벨트 객체 인식 딥러닝 모델 최적화->**
+4. **Vision AI 기반 컨베이어 벨트 객체 인식 딥러닝 모델 최적화->** https://github.com/yeonhochi/Doosan_project/tree/main/Vision%20AI-Based%20Conveyor%20Belt%20Object%20Detection
 
 ---
    
