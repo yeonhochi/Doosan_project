@@ -18,7 +18,7 @@
 
 ---
    
-### 4. **Fullfilment 가상 서비스 환경 실습 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Fullfilment
+### 4. **AMR + Manipulator 기반 박스 이동 자동화 프로젝트 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Fullfilment
 
 ---
    
