@@ -50,7 +50,6 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
         b 위치로 내려와 기어를 놓음 (release())
         다시 150mm 위로 이동하여 대기
 
-
 ## 3️⃣ pap_middle() → 3개의 기어 중앙에 새로운 기어 배치
     함수 pap_middle():
         Global_middle 위치에서 150mm 위로 이동
@@ -58,30 +57,25 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
         다시 150mm 위로 이동
         Global_last 위치에서 70mm 위로 이동 (최종 기어 배치 위치로 이동)
 
-## 3개의 기어를 조립하는 과정
-    pap(Global_a1, Global_b1)  # 첫 번째 기어 조립
-    pap(Global_a2, Global_b2)  # 두 번째 기어 조립
-    pap(Global_a3, Global_b3)  # 세 번째 기어 조립
-
-    pap_middle()               # 기어 중앙에 새로운 기어 배치
-
 ## 4️⃣ middle_last() → 최종 기어 배치 및 힘 제어 적용
     함수 middle_last():
         forcing_middle() 실행 → 힘 제어(Force Control) 활성화
         
         반복문 실행:
             Z축 방향의 힘 측정
-            만약 힘이 9N 이상 감지되면:
-                Global_last 위치로 이동
+            만약 힘이 9N 이상 감지되면(=기어 돌리기 전 감지):
+                Global_last 위치로 이동(=기어 돌리는 동장)
                 기어를 놓음 (release())
                 힘 제어 종료 (Force Control 해제)
                 반복문 종료 (EXIT)
     
-    middle_last()
-
-## ✅ 기어 조립 완료!
-프로그램 종료
-
-
+## 메인문
+    
+    pap(Global_a1, Global_b1)  # 첫 번째 기어 조립
+    pap(Global_a2, Global_b2)  # 두 번째 기어 조립
+    pap(Global_a3, Global_b3)  # 세 번째 기어 조립
+    
+    pap_middle()               # 기어 중앙에 새로운 기어 이동
+    middle_last()              # 기어 조립
 
 
