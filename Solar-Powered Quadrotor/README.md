@@ -3,9 +3,9 @@
 ## **프로젝트 개요**
 이 프로젝트는 **쿼드롭터(Quadrotor) 드론을 활용하여 태양광 발전 효율을 최적화하는 주행 알고리즘을 개발**하는 것을 목표로 합니다.  
 드론은 태양광 센서를 통해 **최적의 발전 효율이 나오는 위치를 탐색하고**, 해당 위치로 이동하여 태양광 패널의 발전 성능을 극대화합니다.
-<img src="https://github.com/user-attachments/assets/bc0318ec-682f-475c-b506-64d8f6a0b354" width="500">
+<img src="https://github.com/user-attachments/assets/bc0318ec-682f-475c-b506-64d8f6a0b354" width="800" height="600">
 
-<img src="https://github.com/user-attachments/assets/ea9dd10e-a6a8-4df2-85b5-89ba32663ee2" width="400" height="300">
+
 
 
 ---
