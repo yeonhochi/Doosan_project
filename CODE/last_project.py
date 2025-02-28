@@ -8,7 +8,8 @@ from DR_common2 import posx  # posx() 함수 사용
 # for single robot
 ROBOT_ID = "dsr01"
 ROBOT_MODEL = "m0609"
-VELOCITY, ACC = 400, 400
+VELOCITY, ACC = 700, 700
+VELOCITY1, ACC1 = 300, 300
 
 DR_init.__dsr__id = ROBOT_ID
 DR_init.__dsr__model = ROBOT_MODEL
@@ -55,6 +56,8 @@ def main(args=None):
             DR_FC_MOD_REL,
             DR_AXIS_Z,
             release_compliance_ctrl,
+            move_spiral,
+            DR_TOOL,
         )
 
         from DR_common2 import posx, posj
@@ -77,6 +80,7 @@ def main(args=None):
         release()
         set_digital_output(1, ON)
         set_digital_output(2, OFF)
+        wait(0.2)
         wait_digital_input(1)
 
     # ✅ 기본 초기 위치 (JReady)
@@ -150,7 +154,7 @@ def main(args=None):
         release()
 
         # 6️⃣ 다시 Z축 14mm 하강
-        lowered_position = trans(current_pose, [0, 0, -16, 0, 0, 0], DR_BASE, DR_BASE)
+        lowered_position = trans(current_pose, [0, 0, -14, 0, 0, 0], DR_BASE, DR_BASE)
         movel(lowered_position, vel=VELOCITY, acc=ACC, ref=DR_BASE)
 
         # 7️⃣ 컵을 잡기 (grip)
@@ -184,7 +188,7 @@ def main(args=None):
     for index, pose in enumerate(reordered_cup_positions2):
         print(f"Moving to Cup Index {ordered_indices2[index]}: {pose}")
 
-        pick=trans(posx(pick_position.tolist()), [0, 0, x, 0, 0, 0], DR_BASE, DR_BASE)
+        pick=trans(posx(pick_position.tolist()), [0, 0, x - 10, 0, 0, 0], DR_BASE, DR_BASE)
         movel(posx(pick.tolist()), vel=VELOCITY, acc=ACC, ref=DR_BASE)
         grip()
         x-=10.7
@@ -214,12 +218,12 @@ def main(args=None):
         release()
 
         # 6️⃣ 다시 Z축 14mm 하강
-        lowered_position = trans(current_pose, [0, 0, -16, 0, 0, 0], DR_BASE, DR_BASE)
+        lowered_position = trans(current_pose, [0, 0, -14, 0, 0, 0], DR_BASE, DR_BASE)
         movel(lowered_position, vel=VELOCITY, acc=ACC, ref=DR_BASE)
 
         # 7️⃣ 컵을 잡기 (grip)
         grip()
-        lowered_position = trans(current_pose, [0, 0, 170, 0, 0, 0], DR_BASE, DR_BASE)
+        lowered_position = trans(current_pose, [0, 0, 135, 0, 0, 0], DR_BASE, DR_BASE)
         movel(lowered_position, vel=VELOCITY, acc=ACC, ref=DR_BASE)
         
         # 8️⃣ 컵 배치할 위치로 이동 (높이 보정 후 이동)
@@ -248,9 +252,8 @@ def main(args=None):
         print(f"Moving to Cup Index {ordered_indices3[index]}: {pose}")
 
         #movej(JReady, vel=VELOCITY, acc=ACC)
-        pick2=trans(posx(pick_position.tolist()), [0, 0, 100, 0, 0, 0], DR_BASE, DR_BASE)
-        movel(posx(pick2.tolist()), vel=VELOCITY, acc=ACC, ref=DR_BASE)
-        pick=trans(posx(pick_position.tolist()), [0, 0, x, 0, 0, 0], DR_BASE, DR_BASE)
+        movel(posx(pick_position.tolist()), vel=VELOCITY, acc=ACC, ref=DR_BASE)
+        pick=trans(posx(pick_position.tolist()), [0, 0, x - 10, 0, 0, 0], DR_BASE, DR_BASE)
         movel(posx(pick.tolist()), vel=VELOCITY, acc=ACC, ref=DR_BASE)
         grip()
         x-=10.7
@@ -280,7 +283,7 @@ def main(args=None):
         release()
 
         # 6️⃣ 다시 Z축 14mm 하강
-        lowered_position = trans(current_pose, [0, 0, -16, 0, 0, 0], DR_BASE, DR_BASE)
+        lowered_position = trans(current_pose, [0, 0, -14, 0, 0, 0], DR_BASE, DR_BASE)
         movel(lowered_position, vel=VELOCITY, acc=ACC, ref=DR_BASE)
 
         # 7️⃣ 컵을 잡기 (grip)
@@ -314,10 +317,10 @@ def main(args=None):
     for index, pose in enumerate(reordered_cup_positions3):
         print(f"Moving to Cup Index {ordered_indices3[index]}: {pose}")
 
-        pick=trans(posx(pick_position.tolist()), [0, 0, x, 0, 0, 0], DR_BASE, DR_BASE)
+        pick=trans(posx([345.842, 211.44, 221.3, 15.07, 179.452, 194.563]), [0, 0, x, 0, 0, 0], DR_BASE, DR_BASE)
         movel(posx(pick.tolist()), vel=VELOCITY, acc=ACC, ref=DR_BASE)
 
-        position1 = posx([345.486, 182.979, 92.233, 90.256, -89.446, 93.421])
+        position1 = posx([345.486, 182.979, 92.233, 90.256, -89.446, 273.421])
         movel(position1, vel=VELOCITY, acc=ACC, ref = DR_BASE)
         grip()
         
@@ -325,17 +328,137 @@ def main(args=None):
         lifted_position2 = trans(position1, [0, 0, 80, 0, 0, 0], DR_BASE, DR_BASE)
         movel(lifted_position2, vel=VELOCITY, acc=ACC, ref=DR_BASE)
 
-        movel(posx([354.671, 20.933, 329.934, 99.825, -89.219, -87.658]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+        movel(posx([354.671, 20.933, 329.934, 99.825, -89.219, -267.658]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
         
-        movel(posx([339.737, -76.131, 309.885, 99.825, -89.185, -87.725]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+        movel(posx([339.737, -76.131, 309.885, 99.825, -89.185, -267.725]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
 
-        position2 = posx([339.737, -76.131, 299.885, 99.825, -89.185, -87.725])
+        position2 = posx([339.737, -76.131, 294.885, 99.825, -89.185, -267.725])
         movel(position2, vel=VELOCITY, acc=ACC, ref = DR_BASE)
 
         release()
 
         end_pose = trans(position2, [0, 100, 0, 0, 0, 0], DR_BASE, DR_BASE)
         movel(end_pose, vel=VELOCITY, acc=ACC, ref=DR_BASE)
+
+    ################## performance #####################
+
+    ######컵 놓기#########
+    
+    #waypoint2
+    movel(posx([499.945, -0.0, 349.873, 112.517, -88.899, -90.0]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+
+    #waypoint1
+    movel(posx([526.771, 252.938, 150.0, 112.504, -89.022, -89.99]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+
+    #컵 잡는 자세
+    movel(posx([526.815, 253.0, 27.179, 112.502, -89.0, -90.0]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+
+    grip()
+
+    #waypoint1
+    movel(posx([526.788, 260.703, 350.0, 112.523, -89.0, -90.0]), vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    #waypoint2
+    movel(posx([500.0, -0.0, 350.0, 112.517, -89.0, -90.0]), vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    #컵 놓으러 평행이동 하기 전 위치
+    movel(posx([348.968, 0.0, 400.036, 112.514, -89.001, -90.001]), vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    #컵 놓는 위치
+    movel(posx([344.973, -72.0, 399.964, 112.507, -88.885, -89.991]), vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    release()
+
+    #####따르기########
+
+    #컵 놓고 후퇴
+    movel(posx([348.968, 0.0, 400.036, 112.514, -89.001, -90.001]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+
+    #waypoint2
+    movel(posx([500.0, -0.0, 350.0, 112.517, -89.0, -90.0]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+
+    #waypoint1
+    movel(posx([526.788, 260.703, 350.0, 112.523, -89.0, -90.0]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+
+    #컵 잡는 자세
+    movel(posx([526.815, 253.0, 27.179, 112.502, -89.0, -90.0]), vel=VELOCITY, acc=ACC, ref = DR_BASE)
+   
+    grip()
+
+    #waypoint1
+    movel(posx([526.788, 260.703, 350.0, 112.523, -89.0, -90.0]), vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+    
+    #waypoint2
+    movel(posx([500.0, -0.0, 350.0, 112.517, -89.0, -90.0]), vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    #물 따르러 도착  
+    movel(posx([440.035, -9.965, 463.306, 134.426, -94.001, -90.0]), vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    #컵 비스듬 자세 - 물 따르기 직전
+    movel(posx([456.711, 6.889, 463.186, 134.415, -93.996, -40.0]), vel=50, acc=50, ref = DR_BASE)
+
+    #물 따르기 자세 1 - 조금 따라지는 상태
+    pos1 = posx([420.0, 9.909, 483.201, 134.414, -94.002, -5.0])
+
+    #물 따르기 자세 2 - 완전 따르기
+    pos2 = posx([420.0, 9.909, 483.201, 134.414, -94.002, 20.0])
+
+    movel(pos1, vel=50, acc=50, ref = DR_BASE)
+
+    #물 따르기
+    for i in range(4):
+        movel(pos2, vel=VELOCITY, acc=ACC, ref = DR_BASE)
+        movel(pos1, vel=VELOCITY, acc=ACC, ref = DR_BASE)
+
+    movel(posx([440.035, -9.965, 463.306, 134.426, -94.001, -90.0]), vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+
+    #컵 두기전 웨이포인트1
+    cup1 = posx([616.361, 211.707, 287.974, 126.752, -91.453, -91.956])
+    movel(cup1, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    #컵 두기 전 웨이 포인트2
+    cup2 = posx([613.153, 215.849, 75.916, 126.222, -92.109, -92.967])
+    movel(cup2, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    release()
+
+    #컵 두고, 빼기는 동작1
+    cup3 = posx([573.0, 265.0, 124.84, 126.223, -92.105, -92.971])
+    movel(cup3, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    #컵 두고, 빼기는 동작2
+    cup4 = posx([573.0, 265.0, 250, 126.223, -92.105, -92.971])
+    movel(cup4, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    # 커피 담긴 컵 잡기 전 웨이포인트
+    cup5=posx([333.558, -5.686, 299.82, 89.638, -92.559, -90.214])
+    movel(cup5, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    # 커피 담긴 컵 잡는 동작
+    cup6 = posx([335.169, -78.736, 295.897, 89.453, -92.822, -90.309])
+    movel(cup6, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    # 커피 담긴 컴 잡음
+    grip()
+
+    #컵 흔들기 전
+    cup7=posx([334.726, -69.823, 394.85, 88.715, -92.613, -88.948])
+    movel(cup7, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    # 컵 흔드는 동작
+    move_spiral(rev = 2, rmax = 30.0, lmax = 0.0,axis = DR_AXIS_Z, v= 200, acc=200, ref = DR_BASE)
+    move_spiral(rev = 1.5, rmax = 30.0, lmax = 0.0,axis = DR_AXIS_Z, v= 200, acc=200, ref = DR_BASE)
+    move_spiral(rev = 2, rmax = 30.0, lmax = 0.0,axis = DR_AXIS_Z, v= 200, acc=200, ref = DR_BASE)
+    move_spiral(rev = 1.5, rmax = 30.0, lmax = 0.0,axis = DR_AXIS_Z, v= 200, acc=200, ref = DR_BASE)
+
+    #컵 주기전 동작
+    cup8 = posx([683.596, 346.557, 374.314, 11.019, 96.099, 88.421])
+    movel(cup8, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
+
+    #컵 주기
+    cup9 = posx([1030.926, 295.693, 292.542, 6.974, 88.988, 89.181])
+    movel(cup9, vel=VELOCITY1, acc=ACC1, ref = DR_BASE)
 
 
     rclpy.shutdown()
