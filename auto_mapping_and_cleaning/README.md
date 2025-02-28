@@ -23,7 +23,12 @@
  
 ---
 
+<br>
+
 # 동작 영상 -> https://youtu.be/AaGLtqbv9YM
+
+<br>
+
 
 ---
 
