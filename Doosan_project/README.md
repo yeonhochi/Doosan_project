@@ -2,7 +2,7 @@
 
 # DOOSAN 협동로봇 프로젝트 개요
 
-DOOSAN 로봇 프로젝트는 **두산로보틱스 M0609 모델**을 사용하며, `DSR`(Doosan Software for Robotics) 패키지와 `ROS`(Robot Operating System) 환경을 활용하여 다양한 task를 진행합니다.  
+DOOSAN 로봇 프로젝트는 **두산로보틱스 M0609 모델**을 사용하며, `DSR`(Doosan Software for Robotics) 패키지와 `ROS2`(Robot Operating System2) 환경을 활용하여 다양한 task를 진행합니다.  
 
 ---
 
@@ -14,24 +14,7 @@ DOOSAN 로봇 프로젝트는 **두산로보틱스 M0609 모델**을 사용하�
 3. **Sport Stacking task**
 
 ---
-<br>
 
-# 동작 영상 https://youtube.com/shorts/2dssJ4UTbxk
-
-<br>
-
----
-
-ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=real host:=192.168.1.100 port:=12345 model:=m0609
-
-
-ros2 run rokey jog
-
-ros2 run rokey get_current_pos
-
-ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot_mode: 0"
-
----
 
 <br><br>
 
@@ -195,4 +178,14 @@ ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot
     3. 컵을 최종 전달 위치로 이동하여 놓음
     4. 작업 완료 후 초기 위치(JReady)로 복귀
 
+
+
+
+ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=real host:=192.168.1.100 port:=12345 model:=m0609
+
+ros2 run rokey jog
+
+ros2 run rokey get_current_pos
+
+ros2 service call /dsr01/system/set_robot_mode dsr_msgs2/srv/SetRobotMode "robot_mode: 0"
 
