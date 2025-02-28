@@ -22,7 +22,7 @@
 
 ---
    
-5. **Vision AI 기반 자율 주행 및 객체 트래킹 개발 ->**
+5. **Vision AI 기반 자율 주행 및 객체 트래킹 개발 ->** https://github.com/yeonhochi/Doosan_project/tree/main/vision-ai_based_object_tracking_and_waypoint_navigation
 
 ---
 6. **Fullfilment 가상 서비스 환경 실습->** https://github.com/yeonhochi/Doosan_project/tree/main/Fullfilment
