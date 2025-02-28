@@ -1,2 +1,21 @@
 
-![KakaoTalk_20250228_150325603](https://github.com/user-attachments/assets/052b270f-d3ff-4bef-8c02-260a9fef37cc)
+<img src="https://github.com/user-attachments/assets/052b270f-d3ff-4bef-8c02-260a9fef37cc" width="500">
+
+
+
+🔍 프로젝트 개요
+
+본 시스템은 YOLO(You Only Look Once) 알고리즘을 활용하여 Raspberry Pi Pico 제조 공정의 컨베이어 벨트에서 실시간으로 불량 제품을 검출하는 솔루션입니다. 제품의 불량 여부를 신속하게 식별하고, 데이터를 체계적으로 기록하여 제조 공정의 효율성과 품질을 향상시키는 것이 목표입니다.
+🚀 주요 기능
+
+    실시간 불량 검출
+        YOLO 기반 고속 객체 탐지 알고리즘 적용
+        제조 공정의 컨베이어 벨트에서 불량 제품을 자동 감지
+
+    데이터 기록 및 통계 분석
+        불량률, 주요 불량 유형 및 발생 빈도 기록
+        데이터 분석을 통해 제조 품질 개선 도출
+
+    웹 인터페이스 (Flask 기반)
+        실시간 모니터링 대시보드 제공
+        불량률 및 원인을 시각적으로 분석하여 효율적인 공정 관리 지원
