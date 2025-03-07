@@ -26,12 +26,11 @@
 
 ---
 
-### 6. **서비스(음식배달,정찰경찰 등) 로봇 및 관제 시스템 개발 ->** https://github.com/yeonhochi/Doosan_project/tree/main/gezebo_simulation_serving-robot
+### 6. **RVIZ2와 Gazebo를 활용한 다중 로봇 자율 협력 시스템 시뮬레이션 ->** https://github.com/yeonhochi/robotics_sw_project/tree/main/Multi-Robot%20Autonomous%20Cooperative%20System%20Simulation
 
 ---
 
- 
-### 7. **RVIZ2와 Gazebo를 활용한 다중 로봇 자율 협력 시스템 시뮬레이션 ->** https://github.com/yeonhochi/robotics_sw_project/tree/main/Multi-Robot%20Autonomous%20Cooperative%20System%20Simulation
+### 7. **서비스(음식배달,정찰경찰 등) 로봇 및 관제 시스템 개발 ->** https://github.com/yeonhochi/Doosan_project/tree/main/gezebo_simulation_serving-robot
 
 ---
 
