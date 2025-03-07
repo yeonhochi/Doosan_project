@@ -1,5 +1,9 @@
 # AMR + Manipulator 기반 박스 이동 자동화 프로젝트
 
+<img src="https://github.com/user-attachments/assets/d1c748c5-7cbd-4eb0-94c7-3357acc4fea1" width="500" height="500">
+
+
+
 ## 프로젝트 개요
 - **목적**: AMR(자율이동로봇)과 매니퓰레이터를 활용하여 **박스 이동 및 적재 자동화**
 - **사용 기술**:
