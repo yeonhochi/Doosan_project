@@ -4,7 +4,7 @@
 **PatrolX**는 교도소 내 보안을 강화하기 위해 개발된 **지능형 순찰 로봇 시스템**입니다.  
 2대의 로봇이 협력하여 방 내 인원을 감지하고, 탈옥범을 탐지하여 자동으로 대응할 수 있도록 설계되었습니다.
 
-<img src="https://github.com/user-attachments/assets/b473fd9f-5a53-4bf8-b57a-7a8f4404dc2c" width="500">
+<img src="https://github.com/user-attachments/assets/b473fd9f-5a53-4bf8-b57a-7a8f4404dc2c" width="700">
 
 ---
 
