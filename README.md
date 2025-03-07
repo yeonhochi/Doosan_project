@@ -35,11 +35,11 @@
 
 ---
 
-### 8. **MATLAB 기반 손글씨 인식 딥러닝 모델 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Matlab_based_deep_learning
+### 8. **Vision AI 기반 컨베이어 벨트 객체 인식 딥러닝 모델 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Vision%20AI-Based%20Conveyor%20Belt%20Object%20Detection
 
 ---
 
-### 9. **Vision AI 기반 컨베이어 벨트 객체 인식 딥러닝 모델 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Vision%20AI-Based%20Conveyor%20Belt%20Object%20Detection
+### 9. **MATLAB 기반 손글씨 인식 딥러닝 모델 ->** https://github.com/yeonhochi/Doosan_project/tree/main/Matlab_based_deep_learning
 
 ---
 
