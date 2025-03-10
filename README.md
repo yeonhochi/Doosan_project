@@ -10,7 +10,6 @@
 
 ---
 
-### 2. **태양광 에너지 하베스팅을 위한 Quadrotor 제어 기법 ->** https://github.com/yeonhochi/robotics_sw_project/tree/main/Solar-Powered%20Quadrotor
 
 ---
    
